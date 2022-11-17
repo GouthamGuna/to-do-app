@@ -53,4 +53,14 @@
 		</plugins>
 	</build>
 
+	<scm>
+		<url>https://gouthamguna.github.io/in/</url>
+		<connection>Mail</connection>
+		<developerConnection>Gowtham Sankar</developerConnection>
+		<tag>GMSK</tag>
+	</scm>
+	<organization>
+		<name>centris</name>
+		<url>https://www.cerpsoft.in/</url>
+	</organization>
 </project>
