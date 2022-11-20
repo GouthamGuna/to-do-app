@@ -3,7 +3,7 @@ package in.gmsk.springbootapp.controller;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AuthenticateUserService {
+public class AuthenticateUserService { 
 
 	public boolean validate(String name, String password) {
 		
