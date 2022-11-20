@@ -3,8 +3,10 @@
 		<title> Cerpsoft </title>
 	</head>
 	<body>
-		<div>Welcome ${uservalue} !</div>
-		<br>
-		<button><a href="/mylist">Your ToDo List</a></button>
+		<div class="container">
+			<h1>Welcome ${uservalue} !</h1>
+			<hr>
+			<button onclick="window.location.href='mylist'">Your ToDo List</button>
+		</div>
 	</body>
 </html>

@@ -26,8 +26,14 @@ public class TodoController {
 		
 		List<ToDoPojo> getData=doService.findByUserName("gowtham");
 		
-		model.addAttribute("show", getData);
+		model.addAttribute("showList", getData);
 		
 		return "listToDos";
+	}
+	
+	@RequestMapping("/add-todo")
+	public String showAddToDoPage(){
+		
+		return "addToDoPage";
 	}
 }
