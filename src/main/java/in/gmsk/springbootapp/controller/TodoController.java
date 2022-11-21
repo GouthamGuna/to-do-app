@@ -31,7 +31,7 @@ public class TodoController {
 		return "listToDos";
 	}
 	
-	@RequestMapping("/add-todo")
+	@RequestMapping("/mylist/add-todo")
 	public String showAddToDoPage(){
 		
 		return "addToDoPage";
