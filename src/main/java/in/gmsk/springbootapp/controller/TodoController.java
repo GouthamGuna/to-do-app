@@ -37,8 +37,8 @@ public class TodoController {
 	public String showAddToDoPage(ModelMap model){
 		
 		String username=(String)model.get("username");
-		ToDoPojo todopojo=new ToDoPojo(0, username, "", LocalDate.now().plusYears(1), false);
-		model.put("todopojo", todopojo);
+		ToDoPojo obj=new ToDoPojo(0, username, "", LocalDate.now().plusYears(1), false);
+		model.put("todopojo", obj);
 		
 		return "addToDoPage";
 	}
