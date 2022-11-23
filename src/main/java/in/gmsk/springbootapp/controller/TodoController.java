@@ -3,8 +3,11 @@ package in.gmsk.springbootapp.controller;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -37,14 +40,18 @@ public class TodoController {
 	public String showAddToDoPage(ModelMap model){
 		
 		String username=(String)model.get("username");
-		ToDoPojo todopojo=new ToDoPojo(0, username, "", LocalDate.now().plusYears(1), false);
-		model.put("todopojo", todopojo);
+		ToDoPojo obj=new ToDoPojo(0, username, "", LocalDate.now().plusYears(1), false);
+		model.put("todopojo", obj);
 		
 		return "addToDoPage";
 	}
 	
 	@RequestMapping(value = "/add-todo", method = RequestMethod.POST)
-	public String AddToDoPage(ModelMap model, ToDoPojo todopojo){
+	public String AddToDoPage(ModelMap model, @Valid ToDoPojo todopojo, BindingResult result){
+		
+		if(result.hasErrors()) {
+			return "addToDoPage";
+		}
 		
 		String username=(String)model.get("username");
 		doService.addToDo(username, todopojo.getDescription(), LocalDate.now().plusYears(1), false);

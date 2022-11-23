@@ -25,9 +25,9 @@ public class ToDoService {
 		return retrieve;
 	}
 	
-	public void addToDo(String username, String description, LocalDate date, boolean isDone) {
+	public void addToDo(String username, String description, LocalDate date, boolean done) {
 		
-		ToDoPojo obj=new ToDoPojo(++todosCount, username, description, date, isDone);
+		ToDoPojo obj=new ToDoPojo(++todosCount, username, description, date, done);
 		retrieve.add(obj);
 	}
 }

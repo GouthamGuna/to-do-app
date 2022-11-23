@@ -2,22 +2,26 @@ package in.gmsk.springbootapp.entity;
 
 import java.time.LocalDate;
 
+import javax.validation.constraints.Size;
+
 public class ToDoPojo {
 		
 	private int id;
 	private String userName;
+	
+	@Size(min=10, message = "Enter atleast 10 character")
 	private String description;
 	private LocalDate date;
-	private boolean isDone;
+	private boolean done;
 	
 
-	public ToDoPojo(int id, String userName, String description, LocalDate date, boolean isDone) {
+	public ToDoPojo(int id, String userName, String description, LocalDate date, boolean done) {
 		super();
 		this.id = id;
 		this.userName = userName;
 		this.description = description;
 		this.date = date;
-		this.isDone = isDone;
+		this.done = done;
 	}
 
 	public int getId() {
@@ -54,25 +58,22 @@ public class ToDoPojo {
 		return date;
 	}
 
-
 	public void setDate(LocalDate date) {
 		this.date = date;
 	}
-
-
+	
 	public boolean isDone() {
-		return isDone;
+		return done;
 	}
 
-
-	public void setDone(boolean isDone) {
-		this.isDone = isDone;
+	public void setDone(boolean done) {
+		this.done = done;
 	}
 
 	@Override
 	public String toString() {
 		return "ToDoPojo [id=" + id + ", userName=" + userName + ", description=" + description + ", date=" + date
-				+ ", isDone=" + isDone + "]";
+				+ ", done=" + done + "]";
 	}
 	
 }
