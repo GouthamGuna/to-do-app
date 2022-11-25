@@ -9,8 +9,8 @@
 		<div class="container">
 			<h1>Enter ToDo Details</h1>
 			<form:form method="post" modelAttribute="todopojo">
-				 Description: <form:input type="text" path="description"/>
-				 <form:errors type="text" path="description"/>
+				 Description: <form:input type="text" path="description" required="required"/>
+				 <!-- <form:errors type="text" path="description"/> -->
 				<form:input type="hidden" path="id"/>
 				<form:input type="hidden" path="done"/>
 				<input type="submit" class="btn btn-success"/>

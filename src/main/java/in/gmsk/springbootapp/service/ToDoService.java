@@ -3,6 +3,7 @@ package in.gmsk.springbootapp.service;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 import org.springframework.stereotype.Service;
 
@@ -14,11 +15,9 @@ public class ToDoService {
 	private static List<ToDoPojo> retrieve=new ArrayList<>();
 	
 	private static int todosCount = 0;
-	
+
 	static {
-		retrieve.add(new ToDoPojo(++todosCount, "Gowtham", "Learn AWS", LocalDate.now().plusYears(1), false));
-		retrieve.add(new ToDoPojo(++todosCount, "Jay kumar", "Learn AWS", LocalDate.now().plusYears(1), false));
-		retrieve.add(new ToDoPojo(++todosCount, "Karthik", "Learn AWS", LocalDate.now().plusYears(1), false));
+		retrieve.add(new ToDoPojo(++todosCount, "default desc", "Learn AWS", LocalDate.now().plusYears(1), false));
 	}
 	
 	public List<ToDoPojo> findByUserName(String userName){
@@ -29,5 +28,21 @@ public class ToDoService {
 		
 		ToDoPojo obj=new ToDoPojo(++todosCount, username, description, date, done);
 		retrieve.add(obj);
+	}
+	
+	public void deleteById(int id) {
+		
+		Predicate<? super ToDoPojo> Predicate = todopojo -> todopojo.getId() == id;
+		
+		retrieve.removeIf(Predicate);
+	}
+
+	public ToDoPojo findById(int id) {
+		
+		Predicate<? super ToDoPojo> Predicate = todopojo -> todopojo.getId() == id;
+
+	   ToDoPojo toDoPojo2 = retrieve.stream().filter(Predicate).findFirst().get();
+		
+		return toDoPojo2;
 	}
 }
