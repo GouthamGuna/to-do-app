@@ -17,7 +17,7 @@ public class ToDoService {
 	private static int todosCount = 0;
 	
 	static {
-		retrieve.add(new ToDoPojo(++todosCount, "default desc ", "Learn AWS", LocalDate.now().plusYears(1), false));
+		retrieve.add(new ToDoPojo(++todosCount, "default desc", "Learn AWS", LocalDate.now().plusYears(1), false));
 	}
 	
 	public List<ToDoPojo> findByUserName(String userName){
