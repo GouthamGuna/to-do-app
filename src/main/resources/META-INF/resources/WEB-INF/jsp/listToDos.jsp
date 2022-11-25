@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>Cerpsoft</title>
-		<link href="webjars/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet" >
+		<link href="webjars/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet" />
 	</head>
 	<body>
 		<div class="container">
@@ -16,6 +16,7 @@
 						<th>Target Date</th>
 						<th>Is Done?</th>
 						<th>Delete</th>
+						<th>Update</th>
 					</tr>
 				</thead>
 				<tbody>		
@@ -26,6 +27,7 @@
 							<td>${todo.date}</td>
 							<td>${todo.done}</td>
 							<td><a href="delete-todo?id=${todo.id}" class="btn btn-warning">Delete</a></td>
+							<td><a href="update-todo?id=${todo.id}" class="btn btn-success">Update</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

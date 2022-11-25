@@ -15,7 +15,7 @@ public class ToDoService {
 	private static List<ToDoPojo> retrieve=new ArrayList<>();
 	
 	private static int todosCount = 0;
-	
+
 	static {
 		retrieve.add(new ToDoPojo(++todosCount, "default desc", "Learn AWS", LocalDate.now().plusYears(1), false));
 	}
@@ -35,5 +35,14 @@ public class ToDoService {
 		Predicate<? super ToDoPojo> Predicate = todopojo -> todopojo.getId() == id;
 		
 		retrieve.removeIf(Predicate);
+	}
+
+	public ToDoPojo findById(int id) {
+		
+		Predicate<? super ToDoPojo> Predicate = todopojo -> todopojo.getId() == id;
+
+	   ToDoPojo toDoPojo2 = retrieve.stream().filter(Predicate).findFirst().get();
+		
+		return toDoPojo2;
 	}
 }

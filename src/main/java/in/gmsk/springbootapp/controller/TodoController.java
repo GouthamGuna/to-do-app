@@ -59,4 +59,13 @@ public class TodoController {
 		doService.deleteById(id);
 		return "redirect:mylist";
 	}
+	
+	@RequestMapping("/update-todo")
+	public String showUpdateToDoPage(@RequestParam int id, ModelMap model) {
+		
+		ToDoPojo obj=doService.findById(id);
+		model.addAttribute("todopojo", obj);
+		
+		return "addToDoPage";
+	}
 }
