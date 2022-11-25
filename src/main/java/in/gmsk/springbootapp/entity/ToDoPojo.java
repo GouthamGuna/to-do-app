@@ -2,14 +2,10 @@ package in.gmsk.springbootapp.entity;
 
 import java.time.LocalDate;
 
-import javax.validation.constraints.Size;
-
 public class ToDoPojo {
 		
 	private int id;
 	private String userName;
-	
-	@Size(min=10, message = "Enter atleast 10 character")
 	private String description;
 	private LocalDate date;
 	private boolean done;

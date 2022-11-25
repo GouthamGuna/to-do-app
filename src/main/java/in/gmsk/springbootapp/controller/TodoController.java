@@ -3,13 +3,11 @@ package in.gmsk.springbootapp.controller;
 import java.time.LocalDate;
 import java.util.List;
 
-import javax.validation.Valid;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import in.gmsk.springbootapp.entity.ToDoPojo;
@@ -47,15 +45,18 @@ public class TodoController {
 	}
 	
 	@RequestMapping(value = "/add-todo", method = RequestMethod.POST)
-	public String AddToDoPage(ModelMap model, @Valid ToDoPojo todopojo, BindingResult result){
-		
-		if(result.hasErrors()) {
-			return "addToDoPage";
-		}
+	public String AddToDoPage(ModelMap model, ToDoPojo todopojo){
 		
 		String username=(String)model.get("username");
 		doService.addToDo(username, todopojo.getDescription(), LocalDate.now().plusYears(1), false);
 		
+		return "redirect:mylist";
+	}
+	
+	@RequestMapping("/delete-todo")
+	public String deleteToDo(@RequestParam int id) {
+		
+		doService.deleteById(id);
 		return "redirect:mylist";
 	}
 }
