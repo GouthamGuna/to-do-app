@@ -41,8 +41,15 @@ public class ToDoService {
 		
 		Predicate<? super ToDoPojo> Predicate = todopojo -> todopojo.getId() == id;
 
-	   ToDoPojo toDoPojo2 = retrieve.stream().filter(Predicate).findFirst().get();
+	    ToDoPojo toDoPojo2 = retrieve.stream().filter(Predicate).findFirst().get();
 		
 		return toDoPojo2;
 	}
+
+	public void updateToDo(ToDoPojo todopojo) {
+		
+		deleteById(todopojo.getId());
+		retrieve.add(todopojo);
+	}
+
 }

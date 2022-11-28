@@ -60,12 +60,20 @@ public class TodoController {
 		return "redirect:mylist";
 	}
 	
-	@RequestMapping("/update-todo")
+	@RequestMapping(value = "/update-todo", method = RequestMethod.GET)
 	public String showUpdateToDoPage(@RequestParam int id, ModelMap model) {
 		
 		ToDoPojo obj=doService.findById(id);
 		model.addAttribute("todopojo", obj);
 		
 		return "addToDoPage";
+	}
+	
+	@RequestMapping(value = "/update-todo", method = RequestMethod.POST)
+	public String updateToDoPage(ModelMap model, ToDoPojo todopojo){
+		
+		doService.updateToDo(todopojo);
+		
+		return "redirect:mylist";
 	}
 }
