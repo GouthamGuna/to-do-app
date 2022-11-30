@@ -48,7 +48,7 @@ public class TodoController {
 	public String AddToDoPage(ModelMap model, ToDoPojo todopojo){
 		
 		String username=(String)model.get("username");
-		doService.addToDo(username, todopojo.getDescription(), LocalDate.now().plusYears(1), false);
+		doService.addToDo(username, todopojo.getDescription(), todopojo.getDate(), false);
 		
 		return "redirect:mylist";
 	}
@@ -72,6 +72,8 @@ public class TodoController {
 	@RequestMapping(value = "/update-todo", method = RequestMethod.POST)
 	public String updateToDoPage(ModelMap model, ToDoPojo todopojo){
 		
+		String username=(String)model.get("username");
+		todopojo.setUserName(username);
 		doService.updateToDo(todopojo);
 		
 		return "redirect:mylist";

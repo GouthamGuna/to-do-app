@@ -11,7 +11,7 @@
 			<table class="table">
 				<thead>
 					<tr>
-						<th>ID</th>
+						<!-- <th>ID</th> -->
 						<th>Description</th>
 						<th>Target Date</th>
 						<th>Is Done?</th>
@@ -22,7 +22,7 @@
 				<tbody>		
 					<c:forEach items="${showList}" var="todo">
 						<tr>
-							<td>${todo.id}</td>
+							<%-- <td>${todo.id}</td> --%>
 							<td>${todo.description}</td>
 							<td>${todo.date}</td>
 							<td>${todo.done}</td>
