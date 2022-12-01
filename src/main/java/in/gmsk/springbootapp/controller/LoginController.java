@@ -36,7 +36,7 @@ public class LoginController {
 		if(authenticateUserService.validate(name, password)){
 			model.put("uservalue", name);
 
-			return "welcome";
+			return "listToDos";
 		}
 		
 		model.put("error", "incorrect credentials...");
