@@ -2,15 +2,14 @@ package in.gmsk.springbootapp.entity;
 
 import java.time.LocalDate;
 
-public class ToDoPojo {
-		
-	private int id;
-	private String userName;
-	private String description;
-	private LocalDate date;
-	private boolean done;
-	
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
+public class ToDoPojo {
+	
 	public ToDoPojo(int id, String userName, String description, LocalDate date, boolean done) {
 		super();
 		this.id = id;
@@ -19,6 +18,14 @@ public class ToDoPojo {
 		this.date = date;
 		this.done = done;
 	}
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+	private String userName;
+	private String description;
+	private LocalDate date;
+	private boolean done;
 
 	public int getId() {
 		return id;
